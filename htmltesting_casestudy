@@ -1,6 +1,8 @@
 Case Study: HTML Testing for a University Admission Portal
 🎓 Background
-A university built a new admission portal to allow students to apply online. The front-end was developed using HTML5, CSS3, and JavaScript, and it had to work on multiple devices and browsers while remaining accessible to all users, including those with disabilities.
+A university built a new admission portal to allow students to apply online. 
+The front-end was developed using HTML5, CSS3, and JavaScript, and it had to work on multiple devices and browsers while remaining accessible 
+to all users, including those with disabilities.
 
 🎯 Objectives of HTML Testing
 Ensure HTML structure is valid and semantic.
