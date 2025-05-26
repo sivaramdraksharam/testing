@@ -1,0 +1,96 @@
+Case Study: HTML Testing for a University Admission Portal
+🎓 Background
+A university built a new admission portal to allow students to apply online. The front-end was developed using HTML5, CSS3, and JavaScript, and it had to work on multiple devices and browsers while remaining accessible to all users, including those with disabilities.
+
+🎯 Objectives of HTML Testing
+Ensure HTML structure is valid and semantic.
+
+Verify cross-browser compatibility (Chrome, Firefox, Safari, Edge).
+
+Confirm mobile responsiveness.
+
+Check accessibility compliance (WCAG 2.1 AA).
+
+Ensure usability and performance for end-users.
+
+🧪 Testing Strategy
+Test Type	Tools Used	Purpose
+HTML Validation	W3C Validator, HTMLHint	Detect malformed HTML and deprecated tags
+Accessibility Testing	Axe, Lighthouse, NVDA	Ensure compliance with WCAG standards
+Cross-browser Testing	BrowserStack, manual testing	Check layout and behavior on all browsers
+Responsiveness	Chrome DevTools, Responsively	Ensure mobile-friendly layout
+Manual Usability Tests	User testing, feedback forms	Validate clarity, navigation, form usability
+
+📄 Example: HTML Snippet from the Form
+html
+Copy
+Edit
+<form action="/submit" method="POST">
+  <label for="fullName">Full Name:</label>
+  <input type="text" id="fullName" name="fullName" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="program">Program:</label>
+  <select id="program" name="program">
+    <option value="cs">Computer Science</option>
+    <option value="math">Mathematics</option>
+  </select>
+
+  <button type="submit">Apply Now</button>
+</form>
+🔍 Testing Highlights
+✅ HTML Validation with W3C
+Findings:
+
+Unclosed <input> tag in early draft
+
+Improper nesting of <div> and <span>
+
+Action Taken:
+
+All HTML validated and corrected to be W3C-compliant
+
+♿ Accessibility Testing with Axe & NVDA
+Issues Found:
+
+Missing aria-label on navigation links
+
+Low color contrast for text on buttons
+
+Resolution:
+
+Added descriptive ARIA roles and labels
+
+Updated color scheme for higher contrast
+
+🌍 Cross-Browser and Responsive Testing
+Tested on: Chrome, Firefox, Safari, Edge, Opera
+
+Screen Sizes: Mobile, Tablet, Desktop
+
+Tools Used: BrowserStack, DevTools
+
+Outcome:
+
+Layout inconsistencies on Safari iOS fixed with CSS media queries
+
+Font rendering issues resolved using web-safe fonts
+
+📊 Results
+Metric	Before Testing	After Testing
+Validation Errors	15+	0
+Accessibility Score (Lighthouse)	65/100	95/100
+Cross-browser issues	Major on Safari	None
+Mobile usability complaints	Frequent	Minimal
+User satisfaction (survey)	3.5/5	4.7/5
+
+💡 Key Takeaways
+Valid HTML is critical for accessibility and browser compatibility.
+
+Automated tools (Lighthouse, Axe, W3C Validator) save time but should be combined with manual testing.
+
+Accessibility isn’t just compliance — it’s about making the web usable for everyone.
+
+Responsive testing across devices is essential for a positive user experience.
