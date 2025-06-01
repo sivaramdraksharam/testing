@@ -7,5 +7,15 @@ Study software metrics: https://drive.google.com/file/d/1mvZVIbczssdEI52OUT4Q-Hh
 
 java simple programs testing (Unit testing) : https://medium.com/geekculture/unit-testing-of-simple-java-programs-b785a164b440
 
+Topics
+------
+1. What is Selenium?
+2. What is driver?
+3. Types of locators
+4. Interactions with input fields
+5. Interactions with buttons
+
+   
+
 
 
