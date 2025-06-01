@@ -10,7 +10,7 @@ java simple programs testing (Unit testing) : https://medium.com/geekculture/uni
 Topics
 ------
 1. What is Selenium? Selenium can automate browser. It supports most of the languages and browsers as well.
-2. What is driver? 
+2. What is driver? Selenium directly can not interact with a browser. It requires driver.
 3. Types of locators
 4. Interactions with input fields
 5. Interactions with buttons
