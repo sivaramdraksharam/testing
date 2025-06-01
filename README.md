@@ -78,7 +78,12 @@ public void setup()
   		e.printStackTrace();
 	}
 }
-   
+
+@AfterTest
+public void tearDown()
+{
+      driver.quit();
+}
 
    
 
