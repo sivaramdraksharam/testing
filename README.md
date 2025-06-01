@@ -52,8 +52,32 @@ public class LaunchBrowser
 }
 //rightclick-->run as-->TestNG class
 
-         
+Day-3
+-----
+//Running test on cloud machine - comment the driver in day1 code
+//creare setup() method in LaunchBrowser class as follows:
 
+class LaunchBrowser{
+
+//create RemoteWebDriver
+RemoteWebDriver driver;
+
+//annotate with @BeforeTest
+@BeforeTest
+public void setup()
+{
+	DesiredCapabilities capabilities = new DesiredCapabilities();
+ 	capabilities.setCapability("build", "your build name");
+  	capabilities.setCapability("name", "your name");
+   	capabilities.setCapability("platform" , "windows 11");
+    	capabilities.setCapability("browserName", "Chrome");
+     	capabilities.setCapability("version", "137.0");
+        try{
+	driver = new RemoteWebDriver(new URL("loginpage or any url", capabilites));
+ 	}catch(MalformedURLException e){
+  		e.printStackTrace();
+	}
+}
    
 
    
