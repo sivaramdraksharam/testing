@@ -32,7 +32,26 @@ Day-1
    k. rightclick--> Run As--> TestNG test
    l. allow Eclipse IDE for access
    m. watch the output
+Inside myTest() try the following code:
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+public class LaunchBrowser
+{
+	@Test
+	public void myTest()
+	{
+		System.setProperty("webdriver.chrome.driver",".drivers/chromedriver.exe");//download appropriate driver and copy  it in drivers folder
+	Webdriver driver=new ChromeDriver();//instantiate driver
+	driver.get("https://www.lambdatest.com/");//open a web site
+	String title=driver.getTitle();
+	System.out.println(title);
+	driver.quit();
+	}
+}
+//rightclick-->run as-->TestNG class
 
+         
 
    
 
