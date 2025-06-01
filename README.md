@@ -1,3 +1,4 @@
+Prerequisite: Annotations: https://github.com/sivaramdraksharam/Fullstack-Training/tree/8afda5c99334463fdbb7dd848a415b9094f6571e/mybuiltinannotations
 # testing
 Manual and automation testing guidelines
 
