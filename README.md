@@ -8,147 +8,72 @@ Study software metrics: https://drive.google.com/file/d/1mvZVIbczssdEI52OUT4Q-Hh
 
 java simple programs testing (Unit testing) : https://medium.com/geekculture/unit-testing-of-simple-java-programs-b785a164b440
 
-Topics
+Day-4 Topics
 ------
-1. What is Selenium? Selenium can automate browser. It supports most of the languages and browsers as well.
-2. What is driver? Selenium directly can not interact with a browser. It requires driver.
-3. Types of locators
-4. Interactions with input fields
-5. Interactions with buttons
+1. What is Junit? Junit is a testing framework to test java programs
+2. What is Jupitor? Jupitor is the junit5 version with great features.
+3. What is Mockito? Mockito is also another testing framework where we can create mock objects for interaction with the application in order to test it.
+4. Can we mock database using mockito? Yes
+   
 
-Day-1
+Day-4
 ------
-1. How to launch the browser?
-   Steps:
-   a. Create Maven project
-   b. Open pom.xml
-   c. Add <dependencies></dependencies> to pom.xml
-   d. Add selenium dependency
-   e. Add testng dependency
-   f. <scope>test</scope> need to be removed from pom.xml as it restricts testing scope for only that folder
-   g. create a package com.satyam.lambdatestdemo under src/test/java
-   h. Create 'LaunchBrowser' class inside the above package
-   i. create a method public void myTest(){System.out.println("Hello World");} inside that class
-   j. annotate with @Test
-   k. rightclick--> Run As--> TestNG test
-   l. allow Eclipse IDE for access
-   m. watch the output
-Inside myTest() try the following code:
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
-public class LaunchBrowser
-{
-	@Test
-	public void myTest()
-	{
-		System.setProperty("webdriver.chrome.driver",".drivers/chromedriver.exe");//download appropriate driver and copy  it in drivers folder
-	Webdriver driver=new ChromeDriver();//instantiate driver
-	driver.get("https://www.lambdatest.com/");//open a web site
-	String title=driver.getTitle();
-	System.out.println(title);
-	driver.quit();
-	}
-}
-//rightclick-->run as-->TestNG class
+Note: Download junit4.jar and hamcrest-all.jar and keep them in your java testing project build path.
+Run the following code as Test Case
 
-Day-3
------
-//Running test on cloud machine - comment the driver in day1 code
-//creare setup() method in LaunchBrowser class as follows:
+import static org.junit.Assert.*;
+import org.junit.Test;
 
-class LaunchBrowser{
-
-//create RemoteWebDriver
-RemoteWebDriver driver;
-
-//annotate with @BeforeTest
-@BeforeTest
-public void setup()
-{
-	DesiredCapabilities capabilities = new DesiredCapabilities();
- 	capabilities.setCapability("build", "your build name");
-  	capabilities.setCapability("name", "your name");
-   	capabilities.setCapability("platform" , "windows 11");
-    	capabilities.setCapability("browserName", "Chrome");
-     	capabilities.setCapability("version", "137.0");
-        try{
-	driver = new RemoteWebDriver(new URL("loginpage or any url", capabilites));
- 	}catch(MalformedURLException e){
-  		e.printStackTrace();
-	}
+// Example Calculator class
+class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+    public int divide(int a, int b) {
+        if (b == 0) throw new IllegalArgumentException("Cannot divide by zero");
+        return a / b;
+    }
 }
 
-@AfterTest
-public void tearDown()
-{
-      driver.quit();
+// JUnit Test Class
+public class CalculatorTest {
+
+    @Test
+    public void testAdd() {
+        Calculator calc = new Calculator();
+        assertEquals(5, calc.add(2, 3));
+    }
+
+    @Test
+    public void testSubtract() {
+        Calculator calc = new Calculator();
+        assertEquals(1, calc.subtract(3, 2));
+    }
+
+    @Test
+    public void testMultiply() {
+        Calculator calc = new Calculator();
+        assertEquals(6, calc.multiply(2, 3));
+    }
+
+    @Test
+    public void testDivide() {
+        Calculator calc = new Calculator();
+        assertEquals(2, calc.divide(6, 3));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDivideByZero() {
+        Calculator calc = new Calculator();
+        calc.divide(5, 0);
+    }
 }
-
-----------------------------------
-==================================
-To test a simple web application using Selenium, you'll typically follow these steps:
- 1) Set up Selenium WebDriver and a browser driver (like ChromeDriver for Chrome). 
-2) Write a Selenium script in a programming language (e.g., Java, Python) to navigate to the web page, locate elements, and perform actions.
- 3) Run the script and verify the expected outcomes.
-
-1. Prerequisites:
-•	Selenium WebDriver:
-Download and install Selenium WebDriver, which allows your script to control the browser. 
-•	Browser Driver:
-Download the appropriate browser driver for your chosen browser (e.g., ChromeDriver for Chrome, GeckoDriver for Firefox). Ensure the driver is compatible with your Selenium WebDriver version. 
-•	Programming Language:
-Choose a programming language (like Java, Python) and set up your development environment with the necessary libraries. 
-2. Writing the Selenium Script:
-•	Initialize WebDriver:
-Create an instance of the desired browser driver (e.g., WebDriver driver = new ChromeDriver();).
-•	Navigate to the Page:
-Use the driver.get() method to navigate to the URL of the web application.
-•	Locate Elements:
-Identify and locate the web elements you need to interact with (e.g., input fields, buttons) using locators like id, name, xpath, or css_selector.
-•	Perform Actions:
-Use Selenium methods to interact with the elements (e.g., driver.findElement(By.id("username")).sendKeys("testuser") to enter text into a username field).
-•	Verify and Validate:
-Use assertions (e.g., assertEquals()) to verify that the application behaves as expected after each action. 
-3. Running the Script:
-•	Execute the Script:
-Run your Selenium script using your programming language's environment (e.g., from an IDE or command line).
-•	Inspect Results:
-Observe the browser's behavior as the script executes. Check if the actions were performed correctly and if the expected outcomes are achieved. 
-Example (Python):
-Python
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-import time
-# Set up Chrome driver
-driver = webdriver.Chrome()
-
-# Navigate to the web page
-driver.get("http://example.com")
-
-# Locate an element
-search_box = driver.find_element(By.ID, "search")
-
-# Perform an action (e.g., type in the search box)
-search_box.send_keys("Selenium tutorial")
-search_box.send_keys(Keys.RETURN)
-
-# Wait for the results to load
-time.sleep(2)
-
-# Verify that the results page is displayed
-results = driver.find_elements(By.CSS_SELECTOR, "h3.r")
-assert len(results) > 0
-
-# Close the browser
-driver.quit()
-4. Best Practices:
-•	Clear Code: Write clean, readable code that is easy to understand and maintain.
-•	Locators: Use robust and reliable locators to identify elements.
-•	Wait Strategically: Use Selenium waits to ensure elements are available before interacting with them.
-•	Assertions: Use assertions to verify the expected behavior of the application. 
-
 
 
 
