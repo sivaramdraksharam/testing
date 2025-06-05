@@ -16,83 +16,9 @@ chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.hcltech.com/site
 
 Topics
 ------
-1. What is Selenium? Selenium can automate browser. It supports most of the languages and browsers as well.
-2. What is driver? Selenium directly can not interact with a browser. It requires driver.
-3. Types of locators
-4. Interactions with input fields
-5. Interactions with buttons
-
-Day-1
-------
-1. How to launch the browser?
-   Steps:
-   a. Create Maven project
-   b. Open pom.xml
-   c. Add <dependencies></dependencies> to pom.xml
-   d. Add selenium dependency
-   e. Add testng dependency
-   f. <scope>test</scope> need to be removed from pom.xml as it restricts testing scope for only that folder
-   g. create a package com.satyam.lambdatestdemo under src/test/java
-   h. Create 'LaunchBrowser' class inside the above package
-   i. create a method public void myTest(){System.out.println("Hello World");} inside that class
-   j. annotate with @Test
-   k. rightclick--> Run As--> TestNG test
-   l. allow Eclipse IDE for access
-   m. watch the output
-Inside myTest() try the following code:
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
-public class LaunchBrowser
-{
-	@Test
-	public void myTest()
-	{
-		System.setProperty("webdriver.chrome.driver",".drivers/chromedriver.exe");//download appropriate driver and copy  it in drivers folder
-	Webdriver driver=new ChromeDriver();//instantiate driver
-	driver.get("https://www.lambdatest.com/");//open a web site
-	String title=driver.getTitle();
-	System.out.println(title);
-	driver.quit();
-	}
-}
-//rightclick-->run as-->TestNG class
-
-Day-3
------
-//Running test on cloud machine - comment the driver in day1 code
-//creare setup() method in LaunchBrowser class as follows:
-
-class LaunchBrowser{
-
-//create RemoteWebDriver
-RemoteWebDriver driver;
-
-//annotate with @BeforeTest
-@BeforeTest
-public void setup()
-{
-	DesiredCapabilities capabilities = new DesiredCapabilities();
- 	capabilities.setCapability("build", "your build name");
-  	capabilities.setCapability("name", "your name");
-   	capabilities.setCapability("platform" , "windows 11");
-    	capabilities.setCapability("browserName", "Chrome");
-     	capabilities.setCapability("version", "137.0");
-        try{
-	driver = new RemoteWebDriver(new URL("loginpage or any url", capabilites));
- 	}catch(MalformedURLException e){
-  		e.printStackTrace();
-	}
-}
-
-@AfterTest
-public void tearDown()
-{
-      driver.quit();
-}
-
-----------------------------------
-==================================
+1. What is HCL one test UI?
+2. How to install HCL onetest UI?
+   
 To test a simple web application using Selenium, you'll typically follow these steps:
  1) Set up Selenium WebDriver and a browser driver (like ChromeDriver for Chrome). 
 2) Write a Selenium script in a programming language (e.g., Java, Python) to navigate to the web page, locate elements, and perform actions.
@@ -156,5 +82,48 @@ driver.quit()
 •	Assertions: Use assertions to verify the expected behavior of the application. 
 
 
+ 
+To use Selenium testing on an HCL-owned laptop, you'll need to ensure your system is properly configured and that you are using the appropriate tools and methods. You'll likely be using HCL OneTest UI for managing and running your tests, and you can import or create Selenium tests to be used within your HCL workflows. 
+1. Set up your environment:
+•	Install necessary software:
+This includes the Java Development Kit (JDK), an Integrated Development Environment (IDE) like Eclipse or IntelliJ, and Selenium WebDriver. 
+•	Configure Selenium:
+Ensure you have the correct versions of Selenium and browser drivers (e.g., ChromeDriver for Chrome or FirefoxDriver for Firefox) installed and configured correctly. 
+•	Install HCL OneTest UI:
+HCL OneTest UI is the platform for managing and running Selenium tests, so you'll need to ensure it's installed and configured on your HCL laptop. 
 
+To install HCL OneTest UI on your HCL laptop, you'll need to download the appropriate installer from the HCL License & Delivery portal and then use the IBM Installation Manager to install it. You can also choose to install it in GUI or silent mode. 
+Detailed Steps:
+1.	1. Download the Installer:
+•	Navigate to the HCL License & Delivery portal.
+•	Download the HCL OneTest UI installer that corresponds to your desired version, product variant, and architecture. 
+2.	2. Install IBM Installation Manager (if not already installed):
+•	If you don't have Installation Manager installed, download and install it from the same portal. 
+3.	3. Install HCL OneTest UI:
+•	Open Installation Manager.
+•	From the "File" menu, go to "Preferences" and then "Repositories".
+•	Add the downloaded installer file as a repository by pointing to the setup disk. 
+•	On the Installation Manager's "Start page," click "Install". 
+•	Follow the on-screen instructions to install HCL OneTest UI. 
+Silent Mode Installation: 
+•	If you want to install HCL OneTest UI in silent mode, you can use the command-line arguments provided in the documentation. This allows for automated installation without user interaction.
+Important Notes:
+•	Ensure you have the appropriate HCL OneTest UI license. 
+•	You can install HCL OneTest UI as a perspective in the UI of another supported Eclipse-based product if you're using a shell-shared installation. 
+•	You can start HCL OneTest UI from the desktop environment or a command-line interface.
 
+2. Create or import Selenium tests:
+•	Create new tests:
+You can create new Selenium tests directly within HCL OneTest UI using the UI Perfecto extension. 
+•	Import existing tests:
+You can import Java projects containing Selenium or Appium tests into HCL OneTest UI. 
+3. Run Selenium tests:
+•	Run tests from the Test Navigator: Once your tests are imported or created, you can run them from the Test Navigator in HCL OneTest UI. 
+•	Run compound tests: You can add Selenium tests to larger workflows that also include other types of tests. 
+•	View test results: HCL OneTest UI provides tools for viewing test logs and results. 
+4. Customization and Extension:
+•	Custom code: You can use custom Java code to extend the functionality of your Selenium tests within HCL OneTest UI.
+•	API: You can also use the API to extend HCL OneTest UI functionality. 
+In essence, you'll be using HCL OneTest UI to manage your Selenium tests, running them from the UI, and viewing the results within the platform. You'll need to ensure your Selenium environment is properly configured and that you have the appropriate drivers installed for your browser(s)
+Ref-
+https://help.hcl-software.com/devops/test/ui/10.5.3/docs/topics/t_run_se_in_rtwec.html
