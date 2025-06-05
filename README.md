@@ -8,6 +8,12 @@ Study software metrics: https://drive.google.com/file/d/1mvZVIbczssdEI52OUT4Q-Hh
 
 java simple programs testing (Unit testing) : https://medium.com/geekculture/unit-testing-of-simple-java-programs-b785a164b440
 
+Automation testing piller- whitepaper: chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.hcltech.com/sites/default/files/documents/resources/whitepaper/files/qex_whitepaper_automation_testing_pillar_selenium.pdf
+
+HCL One test:
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.hcltech.com/sites/default/files/documents/resources/brochure/files/onetestui.pdf
+
+
 Topics
 ------
 1. What is Selenium? Selenium can automate browser. It supports most of the languages and browsers as well.
